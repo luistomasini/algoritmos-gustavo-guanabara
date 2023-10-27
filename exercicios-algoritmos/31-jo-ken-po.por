@@ -28,14 +28,19 @@ programa
 			}
 			senao
 			{
-				se ((jogador1 == "PEDRA" e jogador2 == "TESOURA") ou (jogador1 == "TESOURA" e jogador2 == "PAPEL") ou (jogador1 == "PAPEL" e jogador2 == "PEDRA"))
+				se (jogador1 == jogador2)
 				{
-					escreva("\nJOGADOR 1 GANHOU!")
+					escreva ("EMPATE!")
 				}
 				senao
-				{
-					escreva("\nJOGADOR 2 GANHOU!")
-				}
+					se ((jogador1 == "PEDRA" e jogador2 == "TESOURA") ou (jogador1 == "TESOURA" e jogador2 == "PAPEL") ou (jogador1 == "PAPEL" e jogador2 == "PEDRA"))
+					{
+						escreva("\nJOGADOR 1 GANHOU!")
+					}
+					senao
+					{
+						escreva("\nJOGADOR 2 GANHOU!")
+					}
 			}
 		}			
 	}
@@ -46,7 +51,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 798; 
+ * @POSICAO-CURSOR = 265; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
