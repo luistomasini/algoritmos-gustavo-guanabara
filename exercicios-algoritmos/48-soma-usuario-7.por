@@ -1,16 +1,21 @@
-programa 
+programa
 {
-	inteiro contador
-	
+	inteiro num, cont, soma
+	 
 	funcao inicio()
 	{
-		contador = 0
-		enquanto (contador <= 10)
+		cont = 1
+		soma = 0
+
+		enquanto (cont <= 7)
 		{
-			escreva(contador + "\n")
-			contador++
+			escreva("Digite o " + cont + "º número: ")
+			leia(num)
+
+			soma = soma + num
+			cont++
 		}
-		escreva("Terminei de contar")
+		escreva("O resultado da soma dos número é: " + soma)
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -18,9 +23,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 140; 
+ * @POSICAO-CURSOR = 262; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {contador, 3, 9, 8};
+ * @SIMBOLOS-INSPECIONADOS = {soma, 3, 21, 4};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
