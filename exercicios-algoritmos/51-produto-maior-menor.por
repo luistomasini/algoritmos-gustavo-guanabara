@@ -14,11 +14,16 @@ programa
 			escreva("Digite o preço do " + cont + "º produto: R$ ")
 			leia(preco)
 
-			se (preco > maior)
+			se (maior == 0.0 e menor == 0.0)
+			{
+				menor = preco
+				maior = preco
+			}
+			senao se (preco > maior)
 			{
 				maior = preco
 			}
-			senao se (menor < maior)
+			senao se (preco < menor)
 			{
 				menor = preco
 			}
@@ -34,9 +39,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 286; 
+ * @POSICAO-CURSOR = 380; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {maior, 4, 13, 5}-{menor, 4, 20, 5};
+ * @SIMBOLOS-INSPECIONADOS = {cont, 3, 9, 4}-{preco, 4, 6, 5}-{maior, 4, 13, 5}-{menor, 4, 20, 5};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
