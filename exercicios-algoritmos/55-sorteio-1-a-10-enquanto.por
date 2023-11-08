@@ -7,12 +7,12 @@ programa
 	funcao inicio()
 	{	
 		cont = 1
-		numero_sorteado = Util.sorteia(1, 5)
+		numero_sorteado = Util.sorteia(1, 10)
 		
 		enquanto (cont <= 4)
 		{
 
-			escreva("O computador sorteou um número entre 1 e 5. Tente adivinhar: ")
+			escreva("O computador sorteou um número entre 1 e 10. Tente adivinhar: ")
 			leia(numero_usuario)
 	
 			se (numero_sorteado == numero_usuario)
@@ -43,7 +43,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 514; 
+ * @POSICAO-CURSOR = 244; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = {numero_sorteado, 5, 9, 15}-{numero_usuario, 5, 26, 14};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
