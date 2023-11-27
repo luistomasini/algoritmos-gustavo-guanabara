@@ -1,31 +1,30 @@
 programa
 {
 	real idade[8], soma, media, maior_idade
-	inteiro pos_maior_25, cont
+	inteiro pos_maior_25, pos_maior_idade
 	funcao maiorIdade()
 	{
 		maior_idade = 0.0
-		// exibir a maior idade digitada
+		// exibir a maior idade digitada e a posição da maior idade digitada
 		escreva("\n")
 		escreva("A maior idade digitada é: ")
 
+		// loop para verificar qual a maior idade digitada e a posição
 		para (inteiro i = 0; i < 8; i++)
 		{
+			// verificação da maior idade digitada
 			se(idade[i] > maior_idade)
 			{
 				maior_idade = idade[i]
+				pos_maior_idade = i
 			}
 		}
+		// exibição da maior idade digitada
 		escreva(maior_idade, ".\n")
 
-		escreva("A(s) posição(es) da(s) maior(e)s idade(s) é são: ")
-		para (inteiro i = 0; i < 8; i++)
-		{
-			se(idade[i] > maior_idade)
-			{
-				escreva(i, "|")
-			}
-		}
+		// exibição da posição da maior idade digitada
+		escreva("A posição da maior idade é: ")
+		escreva(pos_maior_idade, ".")		
 	}
 	
 	funcao inicio()
@@ -56,6 +55,7 @@ programa
 			}
 		}
 
+		// função que traz dados sobre a maior idade digitada
 		maiorIdade()
 	}
 }
@@ -64,9 +64,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 487; 
+ * @POSICAO-CURSOR = 621; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {idade, 3, 6, 5}-{maior_idade, 3, 29, 11};
+ * @SIMBOLOS-INSPECIONADOS = {idade, 3, 6, 5}-{maior_idade, 3, 29, 11}-{pos_maior_idade, 4, 23, 15};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
