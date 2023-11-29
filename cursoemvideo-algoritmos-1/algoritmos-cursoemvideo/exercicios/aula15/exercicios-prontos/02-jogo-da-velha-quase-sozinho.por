@@ -1,12 +1,13 @@
 programa
 {
-	inclua biblioteca Tipos --> t
+	inclua biblioteca Tipos --> tp
 	
-	caracter jogo_da_velha[3][3], simbolo
+	caracter jogo_da_velha[3][3]
 	inteiro cont, posicao
+	caracter simbolo
 	logico resp
-	
-	funcao mostrarVelha()
+
+	funcao mostraVelha()
 	{
 		escreva("+---+---+---+\n")
 		para (inteiro i = 0; i < 3; i++)
@@ -21,14 +22,16 @@ programa
 		}
 	}
 
-	funcao logico jogar(caracter s, inteiro p)
+	funcao logico jogar(inteiro p, caracter s)
 	{
-		logico mudou = falso
+		logico mudou
+
+		mudou = falso
 		para (inteiro i = 0; i < 3; i++)
 		{
 			para (inteiro j = 0; j < 3; j++)
 			{
-				se (jogo_da_velha[i][j] == t.inteiro_para_caracter(p))
+				se (jogo_da_velha[i][j] == tp.inteiro_para_caracter(p))
 				{
 					jogo_da_velha[i][j] = s
 					mudou = verdadeiro
@@ -40,7 +43,7 @@ programa
 
 	funcao mudaJogador(caracter s)
 	{
-		se(s == 'X')
+		se (s == 'X')
 		{
 			simbolo = 'O'
 		}
@@ -52,58 +55,57 @@ programa
 
 	funcao logico terminouVelha()
 	{
-		logico terminou = falso
-		inteiro ocorr
+		logico terminou
+		inteiro empate
 
-		// Jogos em linha
+		terminou = falso
+
+		// Para linhas
 		para (inteiro i = 0; i < 3; i++)
 		{
-			se((jogo_da_velha[i][0] == jogo_da_velha[i][1]) e (jogo_da_velha[i][1] == jogo_da_velha[i][2]))
+			se ((jogo_da_velha[i][0] == jogo_da_velha[i][1]) e (jogo_da_velha[i][1] == jogo_da_velha[i][2]))
 			{
 				terminou = verdadeiro
 			}
 		}
 
-		// Jogos em coluna
+		// Para coluna
 		para (inteiro j = 0; j < 3; j++)
 		{
-			se((jogo_da_velha[0][j] == jogo_da_velha[1][j]) e (jogo_da_velha[1][j] == jogo_da_velha[2][j]))
+			se ((jogo_da_velha[0][j] == jogo_da_velha[1][j]) e (jogo_da_velha[1][j] == jogo_da_velha[2][j]))
 			{
 				terminou = verdadeiro
 			}
 		}
 
-		// Jogos em diagonal
-		se((jogo_da_velha[0][0] == jogo_da_velha[1][1]) e (jogo_da_velha[1][1] == jogo_da_velha[2][2]))
+		// Para diagonais
+		se ((jogo_da_velha[0][0] == jogo_da_velha[1][1]) e (jogo_da_velha[1][1] == jogo_da_velha[2][2]))
 		{
 			terminou = verdadeiro
 		}
 
-		se((jogo_da_velha[0][2] == jogo_da_velha[1][1] e jogo_da_velha[1][1] == jogo_da_velha[2][0]))
+		se ((jogo_da_velha[2][0] == jogo_da_velha[1][1]) e (jogo_da_velha[1][1] == jogo_da_velha[0][2]))
 		{
 			terminou = verdadeiro
 		}
 
-		// Jogos em VELHA
-		ocorr = 0
-		
+		empate = 0
+
 		para (inteiro i = 0; i < 3; i++)
 		{
 			para (inteiro j = 0; j < 3; j++)
 			{
-				se ((jogo_da_velha[i][j] != 'X') e (jogo_da_velha[i][j] != 'O'))
+				se (jogo_da_velha[i][j] != 'X' e jogo_da_velha[i][j] != 'O')
 				{
-					ocorr++
+					empate++
 				}
 			}
 		}
 
-		se (ocorr == 0)
+		se (empate == 0)
 		{
 			terminou = verdadeiro
 		}
-
-		// Retorna se o jogo acabou ou não
 		retorne terminou
 	}
 	
@@ -111,38 +113,39 @@ programa
 	{
 		cont = 1
 		simbolo = 'X'
-		
+
 		para (inteiro i = 0; i < 3; i++)
 		{
-			para(inteiro j = 0; j < 3; j++)
+			para (inteiro j = 0; j < 3; j++)
 			{
-				jogo_da_velha[i][j] = t.inteiro_para_caracter(cont)
+				jogo_da_velha[i][j] = tp.inteiro_para_caracter(cont)
 				cont++
 			}
 		}
-		mostrarVelha()
+
+		mostraVelha()
 
 		faca
 		{
 			faca
 			{
-				escreva("Vai jogar [", simbolo, "] em qual posição? ")
+				escreva("Vai jogar em [", simbolo, "] qual posição? ")
 				leia(posicao)
-				resp = jogar(simbolo, posicao)
+				resp = jogar(posicao, simbolo)
 				se (resp == falso)
 				{
-					escreva("JOGADA INVÁLIDA\n")
+					escreva("JOGADA INVÁLIDA!")
 				}
 			}
-			enquanto(resp != verdadeiro)
-			
+			enquanto(resp != verdadeiro)	
+
 			mudaJogador(simbolo)
 			limpa()
-			mostrarVelha()
+			mostraVelha()
 		}
 		enquanto(terminouVelha() != verdadeiro)
 
-		escreva("JOGO FINALIZADO!!!\n")
+		escreva("JOGO FINALIZADO!")
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -150,10 +153,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2068; 
- * @DOBRAMENTO-CODIGO = [8, 23, 40, 52];
+ * @POSICAO-CURSOR = 2447; 
+ * @DOBRAMENTO-CODIGO = [9, 24, 43];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {jogo_da_velha, 5, 10, 13}-{cont, 6, 9, 4}-{posicao, 6, 15, 7}-{resp, 7, 8, 4}-{simbolo, 5, 31, 7}-{i, 115, 16, 1}-{j, 117, 16, 1};
+ * @SIMBOLOS-INSPECIONADOS = {jogo_da_velha, 5, 10, 13};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
